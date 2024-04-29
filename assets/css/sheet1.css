@@ -1,10 +1,12 @@
+@import "vars.css";
+
 html {
     height: 100%;
-    display: grid;
-    justify-items: center;
+
 }
 
 body {
+    height: 100%;
     margin: 0;
     background-color: #000;
 }
@@ -17,26 +19,41 @@ body {
     height: 100%;
     z-index: -1;
     filter: blur(30px);
+    object-fit: cover;
 }
 
 #root {
-    background-color: #d0dfdf;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
 
+#content {
+    position: relative;
+    /* background-color: #d0dfdf; */
+    background-color: var(--bgColor);
+    
     display: grid;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium';
     height: calc(100% + 30px);
 
+    justify-items: center;
+    
     grid-template-rows: 60px auto 30px;
 
     width: 100%;
-    max-width: 1000px;
+    max-width: 1000px;    
 }
 
 header {
-    background-color: darkslategray;
+    background-color: var(--focusColor);
+
     width: 100%;
     display: flex;
     justify-content: center;
+
+    position: relative;
 }
 header a {
     text-decoration: none;
@@ -53,7 +70,7 @@ header h1 {
 }
 
 footer {
-    background-color: rgb(30, 50, 50);
+    background-color: var(--footerColor);
     width: 100%;
 
     display: flex;
@@ -64,7 +81,7 @@ footer a {
     display: flex;
     align-content: center;
     text-decoration: none;
-    color: rgb(87, 87, 87);
+    color: #575757;
     font-size: 10px;
     margin-inline: 5px;
 }
@@ -76,23 +93,146 @@ footer img {
 }
 
 main {
-    margin-inline: 5px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-main p {
-    text-align: justify;
-    margin-block: 0;
-}
-main h3 {
-    text-align: center;
-    margin-block-start: 10px;
-    margin-block-end: 5px;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: fit-content;
 }
 
 @media (orientation: portrait) {
     header {
         justify-content: start;
+    }
+    header a img {
+        margin-left: 50px;
+    }
+}
+
+
+.sidebar {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #3c6464;
+
+    height: calc(100% - 30px);
+    width: 140px;
+
+    padding-top: 60px;
+    padding-left: 30px;
+
+    box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.5);
+
+    overflow-y: auto;
+
+    left: 0;
+
+    z-index: 1;  
+}
+.sidebar a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.sidebar a img {
+    width: 30px;
+    height: 30px;
+    
+    filter: invert();
+    opacity: 0.5;
+    margin-right: 10px;
+}
+.sidebar a label {
+    font-size: 20px;
+    color: white;
+    opacity: 0.5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.menuButton {
+    width: 25px;
+    height: 25px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 17px;
+    left: 17px;
+
+    background-color: transparent;
+    border: 0;
+}
+.menuButton img {
+    width: 25px;
+    height: 25px;
+    
+    filter: invert();
+    opacity: 0.5;
+}
+.menuButton img:hover {
+    width: 25px;
+    height: 25px;
+    
+    filter: invert();
+    opacity: 0.75;
+}
+
+.menu {
+    background-color: var(--menuColor);
+
+    position: absolute;
+    width: 170px;
+    height: fit-content;
+
+    left: 10px;
+    top: 50px;
+
+    padding: 7px;
+
+    border-radius: 10px;
+}
+.menu button {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.menu button:hover {
+    background-color: #ffffff0d;
+}
+.menu button img {
+    width: 30px;
+    height: 30px;
+    
+    filter: invert();
+    opacity: 0.5;
+    margin-inline: 10px;
+}
+.menu button label {
+    font-size: 20px;
+    color: white;
+    opacity: 0.5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+@keyframes openSidebar {
+    0% {
+        left: -150px;
+    }
+    100% {
+        left: 0px;
     }
 }

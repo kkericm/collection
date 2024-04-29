@@ -1,0 +1,30 @@
+.dark {
+    --bgColor: #202222;
+    --focusColor: #0f0f0f;
+    --menuColor: #313434;
+    --footerColor: #000000;
+
+    --fontColor: white;
+    --fontColor2: #92f2f2;
+    
+    --invertDark: ;
+    --invertLight: invert();
+    
+    --60percent: rgba(255, 255, 255, 0.6);
+    --30percent: rgba(255, 255, 255, 0.03);
+}
+.light {
+    --bgColor: #d0dfdf;
+    --focusColor: #3c6464;
+    --menuColor: #4c7d7d;
+    --footerColor: #243939;
+    
+    --fontColor: black;
+    --fontColor2: #3c6464;
+    
+    --invertDark: invert();
+    --invertLight: ;
+
+    --60percent: rgba(0, 0, 0, 0.6);
+    --30percent: rgba(0, 0, 0, 0.03);
+}

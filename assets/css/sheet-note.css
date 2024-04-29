@@ -1,0 +1,19 @@
+
+.note {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+
+    background-color: darkgoldenrod;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.note h3 {
+    margin: 0;
+}
+.note p {
+    margin: 0;
+    height: 100%;
+}
