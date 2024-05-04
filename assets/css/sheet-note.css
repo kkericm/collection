@@ -1,19 +1,230 @@
+@import "vars.css";
+
+.cards {
+    width: 100%;
+    margin: 20px;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    
+    justify-items: center;
+}
 
 .note {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 200px;
     overflow: hidden;
+    border: none;
 
-    background-color: darkgoldenrod;
+    /* margin-block: 10px; */
+    background-color: var(--noteColor);
+    border-radius: 10px;
 
     padding: 10px;
-    margin: 10px;
+
+    & h3 {
+        color: rgba(255, 255, 255, 0.5);
+        margin: 0;
+        font-size: 40px;
+        text-align: center;
+    }
+    & p {
+        color: rgba(255, 255, 255, 0.5);
+        margin: 0;
+        height: 100%;
+        font-size: 20px;
+        text-align: left;
+
+        word-break: keep-all;
+        word-wrap: break-word;
+    }
 }
 
-.note h3 {
-    margin: 0;
+.note-text {
+    overflow: hidden;
+    height: 130px;
 }
-.note p {
-    margin: 0;
+
+.note:hover {
+    background-color: var(--noteHover);
+}
+
+.plus {
+    border: 10px dashed var(--20percent); 
+    background-color: transparent;
+    & h3 {
+        color: var(--20percent);
+    }
+}
+.plus:hover {
+    background-color: var(--10percent);
+}
+
+.note-dialog-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100%);
     height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.note-dialog {
+    width: 80vw;
+    max-width: 900px;
+    height: 500px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--bgColor);
+
+    overflow-y: auto;
+}
+.note-dialog label {
+    font-size: 40px;
+    margin-inline-start: 20px;
+}
+.note-dialog .title {
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+
+    width: 80vw;
+    max-width: 900px;
+    height: 70px;
+    
+    border-radius: 10px 10px 0 0;
+
+    background-color: var(--focusColor);    
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.note-dialog p {
+    font-size: 30px;
+    margin-block: 10px; 
+    margin-block-start: 75px; 
+    margin-inline: 15px; 
+    text-align: justify;
+    color: var(--50percent);
+}
+.note-dialog img {
+    /* margin-right: 20px;
+    margin-left: -20px; */
+    border-radius: 100px;
+
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    filter: invert() opacity(0.5);
+}
+.space-ctrl {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+.controlers {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 40px;
+    margin-right: 10px;
+}
+.controlers > div {
+    position: relative;
+}
+.note-dialog span {
+    position: absolute;
+    opacity: 0;
+    top: 50px;
+    left: 0px;
+    border-radius: 100px;
+    background-color: rgb(126, 173, 153);
+    padding: 10px;
+    
+    transition: opacity 200ms ease;
+}
+.note-dialog img:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    filter: invert();
+}
+.note-dialog img:hover + span {
+    opacity: 1;
+    transition: opacity 200ms ease;
+}
+.note-dialog::-webkit-scrollbar {
+    width: 10px;
+}
+.note-dialog::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 53%, 0.4);
+    border-radius: 5px;
+}
+.note-dialog::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(0, 0%, 53%, 0.6);
+    border-radius: 5px;
+}
+.note-dialog::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin-top: 70px;
+}
+
+/* Eu sei que não é a melhor forma de fazer isso, mas agora vai ser isso aí mesmo. */
+@media (max-width: 100vh) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 80vh) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 60vh) {
+    .note-dialog {
+        width: 100%;
+        height: 100%;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .note {
+        height: 100px;
+    }
+    .note-dialog .title {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .note-dialog .space-ctrl {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .note-dialog .controlers {
+        width: 200px;
+        
+        display: flex;
+        justify-content: space-between;
+
+        margin: 0;
+
+        bottom: 10px;
+        padding: 10px;
+        border-radius: 100px;
+        background-color: var(--focusColor);
+        
+        & img {
+            margin: 0px;
+
+            width: 35px;
+            height: 35px;
+        }
+    }
 }

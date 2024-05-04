@@ -132,10 +132,10 @@
     animation: quit 500ms forwards;
 }
 .stoleft {
-    animation: showSlideToLeft 500ms forwards;
+    animation: showSlideToLeft 200ms forwards;
 }
 .qtoleft {
-    animation: quitSlideToLeft 500ms forwards;
+    animation: quitSlideToLeft 200ms forwards;
 }
 
 /* Set: About */

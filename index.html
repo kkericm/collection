@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Damn Son</title>
-    <link rel="shortcut icon" href="assets/img/arc_feliz.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/sheet1.css">
-    <link rel="stylesheet" href="assets/css/sheet-confi.css">
-    <link rel="stylesheet" href="assets/css/sheet-note.css">
-    <link rel="stylesheet" href="assets/css/sheet-menus.css">
+    <link rel="shortcut icon" href="assets/img/arc_feliz.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/sheet1.css" />
+    <link rel="stylesheet" href="assets/css/sheet-confi.css" />
+    <link rel="stylesheet" href="assets/css/sheet-note.css" />
+    <link rel="stylesheet" href="assets/css/sheet-menus.css" />
+    <link rel="stylesheet" href="assets/css/sheet-containers.css" />
 </head>
 <body class="light">
     <div id=root>
-        <img src="https://preview.redd.it/imagem-aleat%C3%B3ria-v0-q6vhcpl3btpa1.jpg?auto=webp&s=9f25d5fbc2092900e358fa02fb8493dbbd6a264b" id="bg">
+        <img src="https://preview.redd.it/imagem-aleat%C3%B3ria-v0-q6vhcpl3btpa1.jpg?auto=webp&s=9f25d5fbc2092900e358fa02fb8493dbbd6a264b" id="bg" />
         
         <div class="dialog-container fix hidden">
             <div class="normal-dialog hidden" id="about">
@@ -53,8 +54,7 @@
                 </div>
                 <div class="footer">
                     <button onclick="saveSettings()">Save</button>
-                </div>
-                
+                </div>                
             </div>
         </div>
         
@@ -79,7 +79,53 @@
                     <h1>Damn Son</h1>
                 </a>
             </header>
-            <main></main>
+            <main>
+                <div class="cards">
+                    <div id="note-1">
+                        <button class="note" onclick="openNote(this)">
+                            <h3>Eric</h3>
+                            <div class="note-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores reiciendis, veniam ea, provident tenetur dolore quas quae recusandae hic sunt officia, ab at mollitia rerum distinctio nihil quidem. Eaque, error.</p>
+                            </div>
+                        </button>
+                        <div class="note-dialog-bg hidden">
+                            <div class="note-dialog">
+                                <div class="title">
+                                    <label>Eric</label>
+                                    <div class="space-ctrl">
+                                        <div class="controlers">
+                                            <div>
+                                                <img src="assets/img/delete.png">
+                                                <span>Delete</span>
+                                            </div>
+                                            <div>
+                                                <img src="assets/img/edit.png">
+                                                <span>Edit</span>
+                                            </div>
+                                            <div onclick="closeNoteDialog(this)">
+                                                <img src="assets/img/close.png">
+                                                <span>Close</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quos numquam aliquid porro libero sapiente tenetur dicta quidem mollitia? Eveniet magnam, neque ratione adipisci ipsum consequatur commodi deleniti maiores? Deserunt.
+                                    
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis facilis repellat maxime aliquam, culpa laudantium sequi deleniti labore quam laborum numquam. Consequatur hic earum quibusdam doloremque rem rerum nesciunt quia.
+
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam sit suscipit molestias repudiandae quasi ratione ullam odio aspernatur eaque beatae reprehenderit ea maxime rerum minima, omnis facilis officia inventore reiciendis.
+
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil aspernatur, atque veritatis minima amet, voluptas ut ex facilis ratione maxime laborum in laboriosam! Facere aliquam voluptatibus nemo nisi, accusantium veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="note plus" onclick="openNote(this)">
+                        <h3>+</h3>
+                    </button>
+                </div>
+            </main>
             <footer>
                 <a href="https://github.com/kkericm/collection">
                     <img src="assets/img/github-mark-white.png" alt="">
@@ -93,6 +139,19 @@
         </div>
     </div>
 
+    <script>
+        function openNote(/**@type {HTMLElement}*/element) {
+            let dialog = element.parentElement.querySelector(".note-dialog-bg")
+            if (dialog.classList.contains("hidden")) {
+                dialog.classList.remove("hidden")
+            } else {
+                dialog.classList.add("hidden")
+            }
+        }
+        function closeNoteDialog(/**@type {HTMLElement}*/element) {
+            element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("hidden")
+        }
+    </script>
     <script src="scripts/javascript/home.js"></script>
 </body>
 </html>

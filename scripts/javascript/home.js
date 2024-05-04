@@ -1,3 +1,4 @@
+
 const db = {
     themes: [
         "light",
@@ -6,13 +7,12 @@ const db = {
 }
 
 var configSheets = {
-    theme: db.themes[parseInt(getCookie("theme") ?? 0)]
+    theme: db.themes[parseInt(getCookie("theme") ?? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 1 : 0))]
 }
 
 function update(config = configSheets) {
     document.body.className = config.theme
 }
-
 
 function getCookie(key) {
     let cookies = document.cookie;
@@ -47,7 +47,7 @@ function changeMenu() {
         menu.classList.add("qtoleft");
         setTimeout(() => {
             menu.classList.add("hidden");
-        }, 500)
+        }, 200)
     }
 }
 
@@ -78,7 +78,8 @@ function openDialogMenu(dialogName) {
 }
 
 function settingsShow() {
-    document.querySelectorAll(".theme-settings input[name=theme-radio]").item(parseInt(getCookie("theme"))).checked = true
+    // document.querySelectorAll(".theme-settings input[name=theme-radio]").item(parseInt(getCookie("theme"))).checked = true
+    document.querySelectorAll(".theme-settings input[name=theme-radio]").item(db.themes.indexOf(configSheets.theme)).checked = true
 
     openDialogMenu('settings')
 }

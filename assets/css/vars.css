@@ -4,6 +4,9 @@
     --menuColor: #313434;
     --footerColor: #000000;
 
+    --noteColor: #252828;
+    --noteHover: #353939;
+
     --fontColor: white;
     --fontColor2: #92f2f2;
     
@@ -11,7 +14,11 @@
     --invertLight: invert();
     
     --60percent: rgba(255, 255, 255, 0.6);
+    --50percent: rgba(255, 255, 255, 0.5);
+    --30-percent: rgba(255, 255, 255, 0.3);
     --30percent: rgba(255, 255, 255, 0.03);
+    --20percent: rgba(255, 255, 255, 0.2);
+    --10percent: rgba(255, 255, 255, 0.1);
 }
 .light {
     --bgColor: #d0dfdf;
@@ -19,12 +26,19 @@
     --menuColor: #4c7d7d;
     --footerColor: #243939;
     
+    --noteColor: #416a6a;
+    --noteHover: #4b7b7b;
+
     --fontColor: black;
     --fontColor2: #3c6464;
     
     --invertDark: invert();
     --invertLight: ;
-
+    
     --60percent: rgba(0, 0, 0, 0.6);
+    --50percent: rgba(0, 0, 0, 0.5);
     --30percent: rgba(0, 0, 0, 0.03);
+    --30-percent: rgba(0, 0, 0, 0.3);
+    --20percent: rgba(0, 0, 0, 0.2);
+    --10percent: rgba(0, 0, 0, 0.1);
 }
